@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetPulse // Connection Diagnostic Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="terminal-container">
+        <header class="app-header">
+            <div class="brand">
+                <h1>NETPULSE // NETWORK UTILITY</h1>
+                <p>Local latency tracking and asset downlink estimation console.</p>
+            </div>
+            <div id="connection-status" class="status-indicator online">SYSTEM READY</div>
+        </header>
+
+        <main class="grid-layout">
+            
+            <section class="card">
+                <h2>[01] SERVER LATENCY CHECKER (PING)</h2>
+                <p class="panel-desc">Measures round-trip response times to major public web endpoints.</p>
+                
+                <div class="ping-row">
+                    <span class="endpoint-name">Cloudflare (1.1.1.1)</span>
+                    <span id="ping-cloudflare" class="ping-value">-- ms</span>
+                </div>
+                <div class="ping-row">
+                    <span class="endpoint-name">Google DNS (8.8.8.8)</span>
+                    <span id="ping-google" class="ping-value">-- ms</span>
+                </div>
+                
+                <button id="run-ping-btn" class="action-btn">POLL ENDPOINTS</button>
+            </section>
+
+            <section class="card">
+                <h2>[02] DOWNLINK SPEED ESTIMATOR</h2>
+                <p class="panel-desc">Downloads a temporary cloud asset asset to calculate processing speeds.</p>
+                
+                <div class="speed-gauge-box">
+                    <div id="speed-readout">0.00</div>
+                    <div class="speed-unit">Mbps</div>
+                </div>
+
+                <button id="run-speed-btn" class="primary-btn">RUN METRIC SPEED TEST</button>
+            </section>
+
+        </main>
+
+        <footer class="console-log">
+            <div class="log-title">SYSTEM EVENT LOGS:</div>
+            <div id="log-stream" class="stream-box">
+                <p class="log-entry">[SYSTEM] Diagnostic matrix mounted safely. Ready for server polling loops.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
